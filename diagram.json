@@ -1,0 +1,106 @@
+{
+    "version": 1,
+    "author": "InherthZ",
+    "editor": "wokwi",
+    "parts": [
+        { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -187.3, "left": -427.4, "attrs": {} },
+        {
+            "type": "wokwi-dht22",
+            "id": "dht1",
+            "top": -191.7,
+            "left": -82.2,
+            "attrs": { "temperature": "21.2", "humidity": "71" }
+        },
+        {
+            "type": "wokwi-hc-sr04",
+            "id": "ultrasonic1",
+            "top": -315.3,
+            "left": -445.7,
+            "attrs": { "distance": "390" }
+        },
+        {
+            "type": "wokwi-pir-motion-sensor",
+            "id": "pir1",
+            "top": -197.6,
+            "left": -247.38,
+            "attrs": {}
+        },
+        { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 89.6, "left": -604, "attrs": {} },
+        {
+            "type": "wokwi-led",
+            "id": "led1",
+            "top": -157.2,
+            "left": -553,
+            "attrs": { "color": "red" }
+        },
+        {
+            "type": "wokwi-stepper-motor",
+            "id": "stepper2",
+            "top": -417.89,
+            "left": -699.92,
+            "attrs": { "arrow": "blue", "gearRatio": "3:1" }
+        },
+        {
+            "type": "wokwi-buzzer",
+            "id": "bz1",
+            "top": -314.4,
+            "left": -267,
+            "attrs": { "volume": "0.1" }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "led2",
+            "top": -147.6,
+            "left": -524.2,
+            "attrs": { "color": "yellow" }
+        },
+        { "type": "wokwi-ds1307", "id": "rtc1", "top": -322.2, "left": -143.9, "attrs": {} },
+        {
+            "type": "board-ssd1306",
+            "id": "oled1",
+            "top": -198.46,
+            "left": 0.23,
+            "attrs": { "i2cAddress": "0x3c" }
+        },
+        { "type": "wokwi-relay-module", "id": "relay1", "top": -9.4, "left": -144, "attrs": {} }
+    ],
+    "connections": [
+        ["esp:TX0", "$serialMonitor:RX", "", []],
+        ["esp:RX0", "$serialMonitor:TX", "", []],
+        ["dht1:GND", "esp:GND.1", "black", ["v0"]],
+        ["dht1:VCC", "esp:3V3", "red", ["v0"]],
+        ["dht1:SDA", "esp:D15", "green", ["v0"]],
+        ["ultrasonic1:VCC", "esp:VIN", "red", ["v9.6", "h-96", "v172.8"]],
+        ["ultrasonic1:GND", "esp:GND.1", "black", ["v9.6", "h37.2", "v172.8"]],
+        ["ultrasonic1:TRIG", "esp:D5", "green", ["v28.8", "h76.4", "v86.4"]],
+        ["ultrasonic1:ECHO", "esp:D18", "green", ["v19.2", "h95.2", "v96"]],
+        ["pir1:VCC", "esp:VIN", "red", ["v153.6", "h-230.4", "v-76.8"]],
+        ["pir1:GND", "esp:GND.1", "black", ["v0"]],
+        ["pir1:OUT", "esp:D19", "green", ["v19.2", "h-67.34", "v-38.4"]],
+        ["led1:C", "esp:GND.2", "green", ["v0"]],
+        ["led1:A", "esp:D13", "green", ["v0"]],
+        ["stepper2:B-", "esp:D12", "green", ["v0"]],
+        ["stepper2:B+", "esp:D14", "green", ["v0"]],
+        ["stepper2:A+", "esp:D27", "green", ["v0"]],
+        ["stepper2:A-", "esp:D26", "green", ["v0"]],
+        ["esp:GND.1", "bz1:1", "black", ["h47.7", "v-182.5"]],
+        ["led2:C", "esp:GND.2", "green", ["v0"]],
+        ["led2:A", "esp:D25", "green", ["v0"]],
+        ["ldr1:VCC", "esp:3V3", "red", ["h124.8", "v-96"]],
+        ["ldr1:GND", "esp:GND.2", "black", ["h-38.4", "v-125.2"]],
+        ["esp:D33", "ldr1:AO", "green", ["h9.6", "v230.4"]],
+        ["rtc1:GND", "esp:GND.1", "black", ["h19.2", "v268.8", "h-28.8"]],
+        ["rtc1:5V", "esp:VIN", "red", ["h-336", "v268.4"]],
+        ["rtc1:SCL", "esp:D22", "green", ["h-67.2", "v124.9"]],
+        ["bz1:2", "esp:D23", "green", ["v0"]],
+        ["esp:D21", "rtc1:SDA", "green", ["h153.3", "v-19.6"]],
+        ["oled1:GND", "esp:GND.1", "black", ["v-9.6", "h-57.6", "v163.2"]],
+        ["oled1:VCC", "esp:3V3", "red", ["v-19.2", "h-76.65", "v182.4"]],
+        ["oled1:SCL", "esp:D22", "green", ["v-19.2", "h-201.3", "v57.6"]],
+        ["oled1:SDA", "esp:D21", "green", ["v-28.8", "h-163.13", "v96.4"]],
+        ["relay1:VCC", "esp:3V3", "red", ["h-9.6", "v-38.4"]],
+        ["relay1:GND", "esp:GND.1", "black", ["h-28.8", "v-58"]],
+        ["relay1:IN", "esp:D4", "green", ["h-105.6", "v-96.2"]]
+    ],
+    "dependencies": {}
+}
