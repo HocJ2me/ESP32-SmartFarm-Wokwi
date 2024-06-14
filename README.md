@@ -2,6 +2,7 @@
 Dự án nông trại thông minh mô phỏng wokwi trên platformIO với framework Arduino
 
 ## Giao diện hiển thị dữ liệu trên Web
+Website: [Link](https://esp-weather-station.000webhostapp.com/)
 ![image](https://github.com/HocJ2me/ESP32-SmartFarm-Wokwi/assets/45262669/3c7b0248-4043-46f8-b2ae-0886c5485a3d)
 ![image](https://github.com/HocJ2me/ESP32-SmartFarm-Wokwi/assets/45262669/3b81f857-b6df-486d-8106-e85a7e18dafe)
 
